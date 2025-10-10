@@ -1,0 +1,133 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@import './styles/tokens.css';
+@import './styles/theme-semantic.css';
+@import './styles/theme-light.css';
+@import './styles/theme-dark.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* 2️⃣ BASE DESIGN TOKENS (brand & primitives) */
+:root {
+  /* Gray scale */
+  --gray-1: oklch(0.98 0.003 247.858);
+  --gray-2: oklch(0.95 0.005 247.858);
+  --gray-3: oklch(0.88 0.008 247.858);
+  --gray-9: oklch(0.13 0.042 264.695);
+
+  /* Brand */
+  --brand-50: oklch(0.97 0.03 250);
+  --brand-500: oklch(0.56 0.13 260);
+  --brand-600: oklch(0.48 0.14 260);
+
+  /* Semantic helpers */
+  --green: oklch(0.65 0.22 145);
+  --red: oklch(0.57 0.25 27);
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* 3️⃣ THEMES (semantic mapping for light + dark) */
+/* LIGHT THEME */
+:root {
+  --background: var(--gray-1);
+  --foreground: var(--gray-9);
+  --card: white;
+  --card-foreground: var(--gray-9);
+
+  --primary: var(--brand-600);
+  --primary-foreground: var(--gray-1);
+
+  --secondary: var(--gray-2);
+  --secondary-foreground: var(--gray-9);
+
+  --muted: var(--gray-3);
+  --muted-foreground: var(--gray-9);
+
+  --accent: var(--brand-50);
+  --accent-foreground: var(--brand-600);
+
+  --destructive: var(--red);
+  --success: var(--green);
+
+  --border: var(--gray-3);
+  --input: var(--gray-3);
+  --ring: var(--brand-500);
+
+  /* Charts / extra tones */
+  --chart-1: var(--brand-600);
+  --chart-2: var(--green);
+  --chart-3: var(--red);
+  --chart-4: oklch(0.7 0.18 90);
+  --chart-5: oklch(0.6 0.18 300);
+}
+
+/* DARK THEME */
+.dark {
+  --background: var(--gray-9);
+  --foreground: var(--gray-1);
+  --card: oklch(0.18 0.03 250);
+  --card-foreground: var(--gray-1);
+
+  --primary: var(--brand-500);
+  --primary-foreground: var(--gray-1);
+
+  --secondary: oklch(0.25 0.04 250);
+  --secondary-foreground: var(--gray-1);
+
+  --muted: oklch(0.22 0.03 250);
+  --muted-foreground: oklch(0.8 0.02 250);
+
+  --accent: oklch(0.26 0.05 250);
+  --accent-foreground: var(--gray-1);
+
+  --destructive: var(--red);
+  --success: var(--green);
+
+  --border: oklch(0.3 0.04 250);
+  --input: oklch(0.3 0.04 250);
+  --ring: var(--brand-500);
+
+  --chart-1: var(--brand-500);
+  --chart-2: var(--green);
+  --chart-3: var(--red);
+  --chart-4: oklch(0.58 0.18 320);
+  --chart-5: oklch(0.67 0.18 110);
+}
+
+/* 4️⃣ TAILWIND MAPPING + BASE STYLES */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-md: var(--radius-md);
+}
+
+/* Base Tailwind layer */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}

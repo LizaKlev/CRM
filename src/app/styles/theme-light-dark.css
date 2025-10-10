@@ -1,0 +1,11 @@
+:root {
+  --background: var(--gray-1);
+  --foreground: var(--gray-9);
+  --card: var(--gray-1);
+}
+
+.dark {
+  --background: var(--gray-9);
+  --foreground: var(--gray-1);
+  --card: var(--gray-8);
+}
