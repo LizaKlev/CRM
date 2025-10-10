@@ -10,15 +10,17 @@ import {
   SidebarMenuItem,
 } from './ui/sidebar'
 
+import Link from 'next/link'
+
 const items = [
   {
     title: 'Home',
-    url: '#',
+    url: '/',
     icon: Home,
   },
   {
     title: 'Inbox',
-    url: '#',
+    url: '/analytics',
     icon: Inbox,
   },
   {
@@ -49,10 +51,10 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

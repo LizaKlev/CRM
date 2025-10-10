@@ -1,15 +1,13 @@
 :root {
-  --background: var(--gray-1);
-  --foreground: var(--gray-9);
+  @theme inline {
+    --background: var(--gray-50);
+    --foreground: var(--gray-900);
+    --border: var(--gray-200);
+    --input: var(--gray-200);
+    --muted: var(--gray-100);
+    --muted-foreground: var(--gray-600);
 
-  --primary: var(--blue-9);
-  --primary-foreground: var(--gray-1);
-
-  --secondary: var(--gray-2);
-  --secondary-foreground: var(--gray-9);
-
-  --destructive: var(--red-9);
-  --success: var(--green-9);
-  --muted: var(--gray-3);
-  --muted-foreground: var(--gray-8);
+    --accent: var(--secondary-100);
+    --accent-foreground: var(--primary);
+  }
 }
