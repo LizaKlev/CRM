@@ -6,7 +6,7 @@ type ChipProps = {
 
 const Chip: React.FC<ChipProps> = (props) => {
   return (
-    <div className='flex items-center px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm font-medium'>
+    <div className='flex items-center px-3 py-1 rounded-sm bg-yellow-100 text-yellow-700 text-[10px] w-fit font-medium'>
       <p>{props.children}</p>
     </div>
   )
