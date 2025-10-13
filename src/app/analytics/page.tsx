@@ -1,107 +1,72 @@
-import TaskCard from '@/lib/components/task-card'
-import React from 'react'
-import { EllipsisVertical } from 'lucide-react'
-import { Button } from '@/lib/components/ui/button'
+// import { Donut } from 'lucide-react'
+import { ChartBarInteractive } from '@/lib/components/ui/ChartBarInteractive'
+import { Donut } from '@/lib/components/ui/Donut'
+import { ChartLine } from '@/lib/components/ui/ChartLine'
+// import Selectors from '@/lib/components/ui/Selectors'
+// import { TableDemo } from '@/lib/components/Table'
+// import { IncomeSampleData } from '@/lib/sampleData'
+// import MapComponent from '@/lib/components/map/mapComponent'
+// import { Tabs, TabsList, TabsTrigger } from '@/lib/components/ui/tabs'
 
-const analytics = () => {
+const totalConfig = {
+  desktop: { label: 'Desktop', color: 'var(--chart-total)' },
+}
+const greenConfig = {
+  desktop: { label: 'Desktop', color: 'var(--chart-green)' },
+}
+const redConfig = {
+  desktop: { label: 'Desktop', color: 'var(--chart-red)' },
+}
+
+export default function Home() {
   return (
-    <div className='w-full'>
-      <div className='flex w-full flex-row justify-between items-center mb-6'>
-        <h1 className='text-2xl font-bold mb-4'>Tasks</h1>
-        <Button>Add New Task</Button>
-      </div>
-      <div className='flex flex-row gap-3'>
-        <div className='w-full'>
-          <div className='flex border-b-2 pb-2 border-amber-300 w-full flex-row justify-between items-center'>
-            <p>Not Started</p>
-            <EllipsisVertical />
-          </div>
-          <div className='container w-full flex flex-col gap-3 py-10'>
-            <TaskCard
-              title='Task 1'
-              description='Description for Task 1'
-              progress={45}
-              date='12.11.2024'
-            />
+    <div className='flex flex-col m-8 p-4 gap-[18px] rounded-xl'>
+      {/* <Selectors /> */}
 
-            <TaskCard
-              title='Task 2'
-              description='Description for Task 2'
-              progress={30}
-              date='12.11.2024'
-            />
-            <Button> Trololo</Button>
-          </div>
+      <div className='flex bg-card md:flex-row flex-col border justify-between border-border p-5 rounded-xl'>
+        <div className='md:w-1/2'>
+          <Donut />
         </div>
-        <div className='w-full'>
-          <div className='flex border-b-2 pb-2 border-amber-300 w-full flex-row justify-between items-center'>
-            <p>Not Started</p>
-            <EllipsisVertical />
-          </div>
-          <div className='container w-full gap-3 flex flex-col py-10'>
-            <TaskCard
-              title='Task 7'
-              description='Description for Task 7'
-              progress={70}
-              date='12.11.2024'
-            />
-          </div>
+        <div className='md:w-1/2'>
+          {/* <TableDemo data={IncomeSampleData} /> */}
         </div>
-        <div className='w-full'>
-          <div className='flex pb-2 border-b-2 border-amber-300 flex-row justify-between items-center'>
-            <p>Not Started</p>
-            <EllipsisVertical />
-          </div>
-          <div className='container gap-3 flex flex-col py-10'>
-            <TaskCard
-              title='Task 7'
-              description='Description for Task 7'
-              progress={70}
-              date='12.11.2024'
-            />
-            <TaskCard
-              title='Task 8'
-              description='Description for Task 8'
-              progress={90}
-              date='12.11.2024'
-            />
-            <TaskCard
-              title='Task 9'
-              description='Description for Task 9'
-              progress={50}
-              date='12.11.2024'
-            />
-          </div>
+      </div>
+
+      <div className='flex flex-col gap-[18px] w-full sm:flex-row'>
+        <div className='flex-1 sm:w-1/3'>
+          <ChartBarInteractive />
         </div>
-        <div className='w-full'>
-          <div className='flex pb-2 border-b-2 border-amber-300 flex-row justify-between items-center'>
-            <p>Not Started</p>
-            <EllipsisVertical />
-          </div>
-          <div className='container gap-3 flex flex-col py-10'>
-            <TaskCard
-              title='Task 7'
-              description='Description for Task 7'
-              progress={70}
-              date='12.11.2024'
-            />
-            <TaskCard
-              title='Task 8'
-              description='Description for Task 8'
-              progress={90}
-              date='12.11.2024'
-            />
-            <TaskCard
-              title='Task 9'
-              description='Description for Task 9'
-              progress={50}
-              date='12.11.2024'
-            />
-          </div>
+        <div className='flex-[2] sm:w-2'>
+          <ChartLine
+            config={totalConfig}
+            title='Earnings'
+            textColor='#1ac097'
+            value='$4500'
+          />
         </div>
+      </div>
+
+      <div className='flex flex-col sm:flex-row gap-[18px] w-full '>
+        <div className='flex-1/3'>
+          <ChartLine
+            config={greenConfig}
+            title='Fastest growing product'
+            textColor='#1ac097'
+            value='Online course platform'
+            change='+$1500'
+          />
+        </div>
+        <div className='flex-1/3'>
+          <ChartLine
+            config={redConfig}
+            title='Fastest falling product'
+            textColor='#f6465d'
+            value='Digital illustration pack'
+            change='-$500'
+          />
+        </div>
+        <div className='flex-1/3 h-full'>{/* <MapComponent /> */}</div>
       </div>
     </div>
   )
 }
-
-export default analytics

@@ -8,8 +8,10 @@ export default async function DemoPage() {
   const data = paymentsData as Payment[]
 
   return (
-    <div className='container flex flex-col mx-auto py-10'>
+    <div className='container flex flex-col mx-auto py-10 '>
       <DataTable columns={columns} data={data} />
     </div>
   )
 }
+
+

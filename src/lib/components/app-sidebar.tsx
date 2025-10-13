@@ -19,13 +19,13 @@ const items = [
     icon: Home,
   },
   {
-    title: 'Inbox',
+    title: 'Analytics',
     url: '/analytics',
     icon: Inbox,
   },
   {
-    title: 'Calendar',
-    url: '#',
+    title: 'Tasks',
+    url: '/tasks',
     icon: Calendar,
   },
   {
