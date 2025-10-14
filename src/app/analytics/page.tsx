@@ -2,11 +2,11 @@
 import { ChartBarInteractive } from '@/lib/components/ui/ChartBarInteractive'
 import { Donut } from '@/lib/components/ui/Donut'
 import { ChartLine } from '@/lib/components/ui/ChartLine'
-// import Selectors from '@/lib/components/ui/Selectors'
-// import { TableDemo } from '@/lib/components/Table'
-// import { IncomeSampleData } from '@/lib/sampleData'
-// import MapComponent from '@/lib/components/map/mapComponent'
-// import { Tabs, TabsList, TabsTrigger } from '@/lib/components/ui/tabs'
+import Selectors from '@/lib/components/ui/Selectors'
+import { TableDemo } from '@/lib/components/Table'
+import { IncomeSampleData } from '@/lib/components/sampleData'
+import MapComponent from '@/lib/components/map/mapComponent'
+import { Tabs, TabsList, TabsTrigger } from '@/lib/components/ui/Tabs'
 
 const totalConfig = {
   desktop: { label: 'Desktop', color: 'var(--chart-total)' },
@@ -21,14 +21,14 @@ const redConfig = {
 export default function Home() {
   return (
     <div className='flex flex-col m-8 p-4 gap-[18px] rounded-xl'>
-      {/* <Selectors /> */}
+      <Selectors />
 
       <div className='flex bg-card md:flex-row flex-col border justify-between border-border p-5 rounded-xl'>
         <div className='md:w-1/2'>
           <Donut />
         </div>
         <div className='md:w-1/2'>
-          {/* <TableDemo data={IncomeSampleData} /> */}
+          <TableDemo data={IncomeSampleData} />
         </div>
       </div>
 
@@ -65,7 +65,9 @@ export default function Home() {
             change='-$500'
           />
         </div>
-        <div className='flex-1/3 h-full'>{/* <MapComponent /> */}</div>
+        <div className='flex-1/3 h-full'>
+          <MapComponent />
+        </div>
       </div>
     </div>
   )
